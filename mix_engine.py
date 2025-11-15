@@ -55,25 +55,54 @@ class Track:
 
 
 ROLE_KEYWORDS = {
-    "beat": ["beat", "бит"],
+    "beat": ["beat", "бит", "untitled", "минус", "instrumental"],
     "lead_vocal": ["lead", "лид", "vocal", "вокал"],
     "double_vocal": ["double", "дабл", "dbl"],
-    "pad_vocal": ["pad", "уу-уу", "оо-оо", "гаммы", "back", "пэ"],
-    "adlib_vocal": ["adlib", "adlibs", "fx", "шу_шу", "эй", "ха"],
-    "support_vocal": ["support", "поддерж", "фраз", "backing"],
+    "pad_vocal": [
+        "pad",
+        "уу-уу",
+        "ууу",
+        "оо-оо",
+        "гаммы",
+        "back",
+        "хор",
+        "oo",
+    ],
+    "adlib_vocal": ["adlib", "adlibs", "fx", "шу_шу", "эй", "ха", "шуу", "эйй"],
+    "support_vocal": ["support", "поддерж", "фраз", "backing", "важно", "фраза"],
 }
 
 
 def infer_role_from_filename(name: str) -> str:
-    """Infer track role from filename keywords."""
+    """Infer track role from filename keywords and heuristics."""
 
     lowered = name.lower()
-    for role, keywords in ROLE_KEYWORDS.items():
-        if any(keyword in lowered for keyword in keywords):
-            if role == "lead_vocal" and ("double" in lowered or "дабл" in lowered):
-                continue
-            if role == "lead_vocal" and ("pad" in lowered or "adlib" in lowered):
-                continue
+
+    def contains_any(words: List[str]) -> bool:
+        return any(keyword in lowered for keyword in words)
+
+    if contains_any(ROLE_KEYWORDS["beat"]):
+        return "beat"
+    if contains_any(ROLE_KEYWORDS["double_vocal"]):
+        return "double_vocal"
+    if contains_any(ROLE_KEYWORDS["pad_vocal"]):
+        return "pad_vocal"
+    if contains_any(ROLE_KEYWORDS["adlib_vocal"]):
+        return "adlib_vocal"
+    if contains_any(ROLE_KEYWORDS["support_vocal"]):
+        return "support_vocal"
+    if contains_any(ROLE_KEYWORDS["lead_vocal"]):
+        return "lead_vocal"
+
+    numeric_map = {
+        "1": "lead_vocal",
+        "2": "double_vocal",
+        "3": "pad_vocal",
+        "4": "adlib_vocal",
+        "5": "support_vocal",
+    }
+    for digit, role in numeric_map.items():
+        if lowered.strip().startswith(digit):
             return role
     return "unknown"
 
@@ -327,6 +356,8 @@ class TrackProcessor:
         data = track.data.copy()
         if data.ndim == 1:
             data = data[:, None]
+        if data.shape[1] == 1:
+            data = np.repeat(data, 2, axis=1)
         # High-pass filtering
         cutoff = settings.get("hpf", 90.0) if settings else 100.0
         data = apply_highpass(data, cutoff, self.sr, order=3)
