@@ -430,7 +430,12 @@ def apply_bus_compression(data: np.ndarray, threshold_db: float, ratio: float, s
     return apply_compressor(data, threshold_db, ratio, 10.0, 120.0, sr)
 
 
-def mix_tracks(tracks: List[Tuple[Track, np.ndarray]], sr: int, output_dir: Path, export_buses: bool = True) -> Tuple[np.ndarray, Dict[str, np.ndarray]]:
+def mix_tracks(
+    tracks: List[Tuple[Track, np.ndarray]],
+    sr: int,
+    output_dir: Path,
+    export_buses: bool = True,
+) -> Tuple[np.ndarray, Dict[str, np.ndarray]]:
     buses = {"drums": np.zeros((0, 2)), "vocals": np.zeros((0, 2)), "music": np.zeros((0, 2)), "fx": np.zeros((0, 2))}
     max_len = max(processed.shape[0] for _, processed in tracks)
 
@@ -458,7 +463,9 @@ def mix_tracks(tracks: List[Tuple[Track, np.ndarray]], sr: int, output_dir: Path
             buses[key] = ensure_len(value)
     if export_buses:
         for name, data in buses.items():
-            sf.write(str(output_dir / f"bus_{name}.wav"), data, sr)
+            bus_path = output_dir / f"bus_{name}.wav"
+            sf.write(str(bus_path), data, sr)
+            print(f"[info] Saved {name} bus to {bus_path}")
     if np.max(np.abs(buses["vocals"])) > 0 and np.max(np.abs(buses["drums"])) > 0:
         buses["drums"] = sidechain_ducking(buses["drums"], buses["vocals"], sr)
     buses["vocals"] = apply_bus_compression(buses["vocals"], -18.0, 1.5, sr)
@@ -536,14 +543,27 @@ def parse_config(path: Optional[Path]) -> Dict:
         return json.load(f)
 
 
-def export_master_versions(mix_48k: np.ndarray, output_dir: Path) -> None:
-    sf.write(str(output_dir / "master_48k.wav"), mix_48k, DEFAULT_SR)
+def export_master_versions(mix_48k: np.ndarray, output_dir: Path) -> Dict[str, str]:
+    destinations = {
+        "master_48k": output_dir / "master_48k.wav",
+        "master_44k1": output_dir / "master_44k1.wav",
+    }
+    sf.write(str(destinations["master_48k"]), mix_48k, DEFAULT_SR)
+    print(f"[info] Saved 48 kHz master to {destinations['master_48k']}")
     mix_44k1 = librosa.resample(mix_48k.T, orig_sr=DEFAULT_SR, target_sr=MASTER_SR).T
-    sf.write(str(output_dir / "master_44k1.wav"), mix_44k1, MASTER_SR)
+    sf.write(str(destinations["master_44k1"]), mix_44k1, MASTER_SR)
+    print(f"[info] Saved 44.1 kHz master to {destinations['master_44k1']}")
+    return {key: str(path) for key, path in destinations.items()}
 
 
-def build_report(tracks: List[Track], processed: List[Tuple[Track, np.ndarray]], mix: np.ndarray, sr: int) -> Dict:
-    report = {"tracks": {}, "master": {}}
+def build_report(
+    tracks: List[Track],
+    processed: List[Tuple[Track, np.ndarray]],
+    mix: np.ndarray,
+    sr: int,
+    artifacts: Optional[Dict[str, str]] = None,
+) -> Dict:
+    report = {"tracks": {}, "master": {}, "artifacts": artifacts or {}}
     for track, audio in processed:
         stats = compute_loudness(audio, sr)
         report["tracks"][track.name] = {"role": track.role, **stats}
@@ -588,10 +608,10 @@ def main() -> None:
     mastered = master_chain(mix, sr, target_lufs=user_config.get("target_lufs", -12.0))
 
     print("[info] Exporting masters...")
-    export_master_versions(mastered, output_dir)
+    saved_masters = export_master_versions(mastered, output_dir)
 
     print("[info] Building report...")
-    report = build_report(tracks, processed_tracks, mastered, sr)
+    report = build_report(tracks, processed_tracks, mastered, sr, artifacts=saved_masters)
     save_report(report, output_dir / "mix_report.json")
 
     print("[done] Mix and mastering complete")
