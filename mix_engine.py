@@ -16,7 +16,7 @@ import os
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
 import soundfile as sf
@@ -345,6 +345,28 @@ ROLE_SETTINGS = {
 }
 
 
+MASTERING_PROFILES = {
+    "soft": {
+        "target_lufs": -18.0,
+        "enable_saturation": False,
+        "max_master_gain_db": 3.0,
+        "bus_compression": {"enabled": False, "threshold_db": -24.0, "ratio": 1.15},
+    },
+    "normal": {
+        "target_lufs": -16.0,
+        "enable_saturation": False,
+        "max_master_gain_db": 4.0,
+        "bus_compression": {"enabled": True, "threshold_db": -18.0, "ratio": 1.25},
+    },
+    "loud": {
+        "target_lufs": -14.0,
+        "enable_saturation": True,
+        "max_master_gain_db": 4.0,
+        "bus_compression": {"enabled": True, "threshold_db": -16.0, "ratio": 1.35},
+    },
+}
+
+
 class TrackProcessor:
     """Role aware processing of individual tracks."""
 
@@ -473,17 +495,52 @@ def mix_tracks(
     return mix, buses
 
 
-def master_chain(mix: np.ndarray, sr: int, target_lufs: float = -12.0) -> np.ndarray:
-    mix = saturate(mix, 1.1)
-    mix = apply_bus_compression(mix, -16.0, 1.4, sr)
+def master_chain(mix: np.ndarray, sr: int, user_config: Optional[Dict[str, Any]] = None) -> np.ndarray:
+    """Apply a conservative mastering chain with configurable behavior."""
+
+    config = user_config or {}
+    profile_name = config.get("master_profile", "normal")
+    profile = MASTERING_PROFILES.get(profile_name, MASTERING_PROFILES["normal"])
+
+    target_lufs = config.get("target_lufs", profile["target_lufs"])
+    max_gain_db = config.get("max_master_gain_db", profile["max_master_gain_db"])
+    enable_saturation = config.get("enable_saturation", profile["enable_saturation"])
+
+    bus_threshold = config.get(
+        "master_bus_comp_threshold_db", profile["bus_compression"]["threshold_db"]
+    )
+    bus_ratio = config.get("master_bus_comp_ratio", profile["bus_compression"]["ratio"])
+    bus_enabled = config.get(
+        "enable_master_bus_compression", profile["bus_compression"]["enabled"]
+    )
+
+    # Optional gentle saturation to add harmonics if enabled.
+    if enable_saturation:
+        mix = saturate(mix, config.get("saturation_drive", 1.05))
+
+    # Very light master bus compression keeps transients intact.
+    if bus_enabled:
+        mix = apply_bus_compression(mix, bus_threshold, bus_ratio, sr)
+
+    # Loudness normalization with limited upward gain so hot mixes stay musical.
     loudness = compute_loudness(mix, sr)
     current = loudness.get("lufs", loudness["rms_db"])
-    gain = target_lufs - current
-    mix = mix * db_to_amp(gain)
-    mix = soft_limiter(mix, -0.9)
+    gain_db = target_lufs - current
+    if gain_db > max_gain_db:
+        gain_db = max_gain_db
+    mix = mix * db_to_amp(gain_db)
+
+    # Soft limiting around -1.5 dBFS gently reins in peaks.
+    limiter_threshold = config.get("master_limiter_threshold_db", -1.5)
+    mix = soft_limiter(mix, limiter_threshold)
+
+    # Final peak normalization ensures headroom of ~1 dBFS.
     peak = np.max(np.abs(mix))
-    if peak > db_to_amp(-0.8):
-        mix /= peak / db_to_amp(-0.8)
+    target_peak_db = config.get("master_peak_db", -1.0)
+    target_peak = db_to_amp(target_peak_db)
+    if peak > 0 and peak > target_peak:
+        mix *= target_peak / peak
+
     return mix
 
 
@@ -605,7 +662,7 @@ def main() -> None:
     mix, buses = mix_tracks(processed_tracks, sr, output_dir, export_buses=True)
 
     print("[info] Mastering...")
-    mastered = master_chain(mix, sr, target_lufs=user_config.get("target_lufs", -12.0))
+    mastered = master_chain(mix, sr, user_config=user_config)
 
     print("[info] Exporting masters...")
     saved_masters = export_master_versions(mastered, output_dir)
