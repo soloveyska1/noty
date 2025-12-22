@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+<rect width="100%" height="100%" fill="white" />
+<line x1="600.0" y1="170.1" x2="191.4" y2="170.1" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<line x1="600.0" y1="158.1" x2="191.4" y2="158.1" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="375.7" y="152.1" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="395.7" y="164.1" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.77</text>
+<line x1="600.0" y1="164.1" x2="191.4" y2="281.8" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="375.7" y="211.0" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="395.7" y="223.0" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.64</text>
+<line x1="603.0" y1="169.3" x2="194.4" y2="404.7" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<line x1="597.0" y1="158.9" x2="188.4" y2="394.3" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="375.7" y="269.8" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="395.7" y="281.8" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.73</text>
+<line x1="600.0" y1="164.1" x2="191.4" y2="517.3" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="375.7" y="328.7" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="395.7" y="340.7" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.64</text>
+<line x1="600.0" y1="164.1" x2="191.4" y2="635.0" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="375.7" y="387.5" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="395.7" y="399.5" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.56</text>
+<line x1="600.0" y1="158.1" x2="1008.6" y2="158.1" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<line x1="600.0" y1="170.1" x2="1008.6" y2="170.1" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="784.3" y="152.1" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="804.3" y="164.1" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.77</text>
+<line x1="600.0" y1="164.1" x2="1008.6" y2="248.2" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="784.3" y="194.1" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="804.3" y="206.1" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.76</text>
+<line x1="602.3" y1="158.5" x2="1010.9" y2="326.7" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<line x1="597.7" y1="169.6" x2="1006.3" y2="337.8" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="784.3" y="236.2" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="804.3" y="248.2" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.71</text>
+<line x1="600.0" y1="164.1" x2="1008.6" y2="416.4" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="784.3" y="278.2" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="804.3" y="290.2" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.69</text>
+<line x1="600.0" y1="164.1" x2="1008.6" y2="500.5" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="784.3" y="320.3" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="804.3" y="332.3" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.68</text>
+<line x1="600.0" y1="164.1" x2="377.1" y2="735.9" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="468.6" y="438.0" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="488.6" y="450.0" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.64</text>
+<line x1="600.0" y1="164.1" x2="488.6" y2="735.9" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="524.3" y="438.0" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="544.3" y="450.0" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.60</text>
+<line x1="600.0" y1="164.1" x2="600.0" y2="735.9" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="580.0" y="438.0" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="600.0" y="450.0" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.59</text>
+<line x1="600.0" y1="164.1" x2="711.4" y2="735.9" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="635.7" y="438.0" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="655.7" y="450.0" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.56</text>
+<line x1="600.0" y1="164.1" x2="822.9" y2="735.9" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<rect x="691.4" y="438.0" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="711.4" y="450.0" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.52</text>
+<line x1="191.4" y1="399.5" x2="488.6" y2="735.9" stroke="#d32f2f" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+<rect x="320.0" y="555.7" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="340.0" y="567.7" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.59</text>
+<line x1="191.4" y1="517.3" x2="600.0" y2="735.9" stroke="#d32f2f" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+<rect x="375.7" y="614.6" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="395.7" y="626.6" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.52</text>
+<line x1="191.4" y1="635.0" x2="711.4" y2="735.9" stroke="#d32f2f" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+<rect x="431.4" y="673.5" width="40" height="24" rx="6" ry="6" fill="#ffffff" opacity="0.9" />
+<text x="451.4" y="685.5" fill="#424242" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="middle">0.50</text>
+<circle cx="600.0" cy="164.1" r="42" fill="#1976d2" />
+<text x="600.0" y="159.3" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">ПОН</text>
+<text x="600.0" y="168.9" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">IST</text>
+<circle cx="191.4" cy="164.1" r="42" fill="#f57c00" />
+<text x="191.4" y="159.3" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">П</text>
+<text x="191.4" y="168.9" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">10РП</text>
+<circle cx="191.4" cy="281.8" r="42" fill="#f57c00" />
+<text x="191.4" y="277.0" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">В</text>
+<text x="191.4" y="286.6" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">10РП</text>
+<circle cx="191.4" cy="399.5" r="42" fill="#f57c00" />
+<text x="191.4" y="394.7" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">G</text>
+<text x="191.4" y="404.3" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">10РП</text>
+<circle cx="191.4" cy="517.3" r="42" fill="#f57c00" />
+<text x="191.4" y="512.5" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">Н</text>
+<text x="191.4" y="522.1" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">10РП</text>
+<circle cx="191.4" cy="635.0" r="42" fill="#f57c00" />
+<text x="191.4" y="630.2" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">О</text>
+<text x="191.4" y="639.8" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">10РП</text>
+<circle cx="1008.6" cy="164.1" r="42" fill="#4caf50" />
+<text x="1008.6" y="159.3" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">Пр</text>
+<text x="1008.6" y="168.9" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">СОП</text>
+<circle cx="1008.6" cy="248.2" r="42" fill="#4caf50" />
+<text x="1008.6" y="243.4" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">ОУС</text>
+<text x="1008.6" y="253.0" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">СОП</text>
+<circle cx="1008.6" cy="332.3" r="42" fill="#4caf50" />
+<text x="1008.6" y="327.5" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">Пп</text>
+<text x="1008.6" y="337.1" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">СОП</text>
+<circle cx="1008.6" cy="416.4" r="42" fill="#4caf50" />
+<text x="1008.6" y="411.6" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">Ппр</text>
+<text x="1008.6" y="421.2" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">СОП</text>
+<circle cx="1008.6" cy="500.5" r="42" fill="#4caf50" />
+<text x="1008.6" y="495.7" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">Ор</text>
+<text x="1008.6" y="505.3" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">СОП</text>
+<circle cx="377.1" cy="735.9" r="42" fill="#ef5350" />
+<text x="377.1" y="731.1" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">См</text>
+<text x="377.1" y="740.7" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">САМОП</text>
+<circle cx="488.6" cy="735.9" r="42" fill="#ef5350" />
+<text x="488.6" y="731.1" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">ПП</text>
+<text x="488.6" y="740.7" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">САМОП</text>
+<circle cx="600.0" cy="735.9" r="42" fill="#ef5350" />
+<text x="600.0" y="731.1" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">Кр</text>
+<text x="600.0" y="740.7" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">САМОП</text>
+<circle cx="711.4" cy="735.9" r="42" fill="#ef5350" />
+<text x="711.4" y="731.1" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">Ав</text>
+<text x="711.4" y="740.7" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">САМОП</text>
+<circle cx="822.9" cy="735.9" r="42" fill="#ef5350" />
+<text x="822.9" y="731.1" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">Фр</text>
+<text x="822.9" y="740.7" fill="white" font-family="Arial" font-size="16" font-weight="600" text-anchor="middle" dominant-baseline="middle">САМОП</text>
+<line x1="80.0" y1="850.0" x2="160.0" y2="850.0" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<text x="120.0" y="872.0" fill="#424242" font-family="Arial" font-size="14" font-weight="600" text-anchor="middle" dominant-baseline="middle">положительная p < 0,05</text>
+<line x1="330.0" y1="844.0" x2="410.0" y2="844.0" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<line x1="330.0" y1="856.0" x2="410.0" y2="856.0" stroke="#2e7d32" stroke-width="4" stroke-linecap="round"/>
+<text x="370.0" y="872.0" fill="#424242" font-family="Arial" font-size="14" font-weight="600" text-anchor="middle" dominant-baseline="middle">положительная p < 0,01</text>
+<line x1="580.0" y1="850.0" x2="660.0" y2="850.0" stroke="#d32f2f" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+<text x="620.0" y="872.0" fill="#424242" font-family="Arial" font-size="14" font-weight="600" text-anchor="middle" dominant-baseline="middle">отрицательная p < 0,05</text>
+<line x1="830.0" y1="844.0" x2="910.0" y2="844.0" stroke="#d32f2f" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+<line x1="830.0" y1="856.0" x2="910.0" y2="856.0" stroke="#d32f2f" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+<text x="870.0" y="872.0" fill="#424242" font-family="Arial" font-size="14" font-weight="600" text-anchor="middle" dominant-baseline="middle">отрицательная p < 0,01</text>
+</svg>
